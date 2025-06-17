@@ -24,7 +24,13 @@ public class Departamento {
         return funcionarios;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
 
+    public String getNome() {
+        return nome;
+    }
 
     public int getCont() {
         return this.cont;
@@ -60,7 +66,7 @@ public class Departamento {
         }
     }
 
-    public void geralDepartamento(){
+    public void exibirGeralDepartamento(){
 
         System.out.println("Departamanto: " + this.nome);
         System.out.println("Codigo do departamanto: " + this.codigo);
@@ -78,5 +84,22 @@ public class Departamento {
         System.out.println("Numero de funcionarios: " + this.cont);
         System.out.println("Total gasto com salaio: " + this.totalGasto());
     
+    }
+
+    public Funcionario buscarFuncByCod(String codigo){
+        for (int i = 0; i < cont; i++) {
+            if (funcionarios[i].getCodigo() == codigo) {
+                return funcionarios[i];
+            }
+        }
+        return null;
+    }
+    public Funcionario buscarFuncByNome(String nome){
+        for (int i = 0; i < cont; i++) {
+            if (funcionarios[i].getNome() == nome) {
+                return funcionarios[i];
+            }
+        }
+        return null;
     }
 }
