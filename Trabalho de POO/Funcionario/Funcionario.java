@@ -25,8 +25,34 @@ public abstract class Funcionario {
         return nome;
     }
 
-    public double getSalario() {
-        return salario;
+    public double calcularSalario() {
+
+        double salarioadicionado = 0;
+
+        switch (this.nivel) {
+            case "t1", "T1":
+            salarioadicionado = (this.salario)*(Auxiliar.t1);
+            
+            case "t2", "T2":
+            salarioadicionado = (this.salario)*(Auxiliar.t2);
+
+            case "d1", "D1":
+            salarioadicionado = (this.salario)*(Auxiliar.d1);
+
+            case "d2", "D2":
+            salarioadicionado = (this.salario)*(Auxiliar.d2);
+
+            case "d3", "D3":
+            salarioadicionado = (this.salario)*(Auxiliar.d3);
+
+            case "s1", "S1":
+            salarioadicionado = (this.salario)*(Auxiliar.s1);
+
+            case "s2", "S2":
+            salarioadicionado = (this.salario)*(Auxiliar.s2);
+        }
+
+        return salarioadicionado;
     }
 
     public String getNivel() {
@@ -49,6 +75,16 @@ public abstract class Funcionario {
 
     public void setNivel(String nivel) {
         this.nivel = nivel;
+    }
+
+    //metodos gerais
+
+    public void exibirFuncionario(){
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Codigo: " + this.codigo);
+        System.out.println("Salário: " + this.calcularSalario());
+        System.out.println("Nivel: " + this.nivel);
+        System.out.println("\n");
     }
     
 

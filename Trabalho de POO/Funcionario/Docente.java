@@ -1,6 +1,5 @@
 package Funcionario;
 
-
 public abstract class Docente extends Funcionario {
 
     protected String titulaçao;
@@ -17,7 +16,4 @@ public abstract class Docente extends Funcionario {
     public void setTitulaçao(String titulaçao) {
         this.titulaçao = titulaçao;
     }
-
-       
-
 }

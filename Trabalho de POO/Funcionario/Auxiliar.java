@@ -2,23 +2,13 @@ package Funcionario;
 
 public class Auxiliar {
 
-    private float t1;
-    private float t2;
-    private float d1;
-    private float d2;
-    private float d3;
-    private float s1;
-    private float s2;
-
-    public Auxiliar() {
-        this.t1 = 1.1f;
-        this.t2 = 1.2f;
-        this.d1 = 1.05f;
-        this.d2 = 1.1f;
-        this.d3 = 1.2f;
-        this.s1 = 1.05f;
-        this.s2 = 1.1f;
-    }
+    public static final float t1 = 1.1f ;
+    public static final float t2 = 1.2f ;
+    public static final float d1 = 1.1f ;
+    public static final float d2 = 1.15f;
+    public static final float d3 = 1.25f;
+    public static final float s1 = 1.05f;
+    public static final float s2 = 1.1f ;
 
     public float getT1() {
         return t1;
