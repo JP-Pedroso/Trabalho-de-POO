@@ -20,6 +20,25 @@ public class Universidade {
         this.departamentos = new Departamento[MAX];
     }
 
+    
+
+    public String getNome() {
+        return nome;
+    }
+
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+
+
+    public int getContDep() {
+        return contDep;
+    }
+
+
     public void geral(){
         System.out.println("Universidade: "+ this.nome);
         for (int i = 0; i < contDep; i++) {
