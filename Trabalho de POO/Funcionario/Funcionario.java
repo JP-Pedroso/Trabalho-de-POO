@@ -7,17 +7,15 @@ public abstract class Funcionario {
     protected double salario;
     protected String nivel;
 
-
-    public Funcionario (String codigo, String nome, double salario, String nivel){
+    public Funcionario(String codigo, String nome, double salario, String nivel) {
         this.codigo = codigo;
         this.nome = nome;
         this.salario = salario;
-        this.nivel= nivel;
+        this.nivel = nivel;
     }
 
-    //Getter
-
-    public String getCodigo(){
+    // Getters
+    public String getCodigo() {
         return codigo;
     }
 
@@ -25,42 +23,15 @@ public abstract class Funcionario {
         return nome;
     }
 
-    public double calcularSalario() {
-
-        double salarioadicionado = 0;
-
-        switch (this.nivel) {
-            case "t1", "T1":
-            salarioadicionado = (this.salario)*(Auxiliar.t1);
-            
-            case "t2", "T2":
-            salarioadicionado = (this.salario)*(Auxiliar.t2);
-
-            case "d1", "D1":
-            salarioadicionado = (this.salario)*(Auxiliar.d1);
-
-            case "d2", "D2":
-            salarioadicionado = (this.salario)*(Auxiliar.d2);
-
-            case "d3", "D3":
-            salarioadicionado = (this.salario)*(Auxiliar.d3);
-
-            case "s1", "S1":
-            salarioadicionado = (this.salario)*(Auxiliar.s1);
-
-            case "s2", "S2":
-            salarioadicionado = (this.salario)*(Auxiliar.s2);
-        }
-
-        return salarioadicionado;
+    public double getSalario() {
+        return salario;
     }
 
     public String getNivel() {
         return nivel;
     }
 
-    //Setters
-
+    // Setters
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -77,16 +48,43 @@ public abstract class Funcionario {
         this.nivel = nivel;
     }
 
-    //metodos gerais
+    // Métodos
+    public double calcularSalario() {
+        double salarioCalculado = this.salario;
 
-    public void exibirFuncionario(){
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Codigo: " + this.codigo);
-        System.out.println("Salário: " + this.calcularSalario());
-        System.out.println("Nivel: " + this.nivel);
-        System.out.println("\n");
+        switch (this.nivel.toUpperCase()) {
+            case "T1":
+                salarioCalculado *= Auxiliar.t1;
+                break;
+            case "T2":
+                salarioCalculado *= Auxiliar.t2;
+                break;
+            case "D1":
+                salarioCalculado *= Auxiliar.d1;
+                break;
+            case "D2":
+                salarioCalculado *= Auxiliar.d2;
+                break;
+            case "D3":
+                salarioCalculado *= Auxiliar.d3;
+                break;
+            case "S1":
+                salarioCalculado *= Auxiliar.s1;
+                break;
+            case "S2":
+                salarioCalculado *= Auxiliar.s2;
+                break;
+        }
+
+        return salarioCalculado;
     }
-    
 
-    
+    public abstract String exibirFuncionario();
+
+protected String formatarDadosBasicos() {
+    return "Nome: " + this.nome + "\n" +
+           "Código: " + this.codigo + "\n" +
+           "Salário: " + String.format("%.2f", this.calcularSalario()) + "\n" +
+           "Nível: " + this.nivel + "\n";
+}
 }

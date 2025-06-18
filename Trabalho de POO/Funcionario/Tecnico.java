@@ -9,16 +9,18 @@ public class Tecnico extends Funcionario {
         this.funcao = funcao;
     }
 
-    @Override
-    public void exibirFuncionario(){
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Codigo: " + this.codigo);
-        System.out.println("Salário: " + this.calcularSalario());
-        System.out.println("Nivel: " + this.nivel);
-        System.out.println("Funcao: " + this.funcao);
-        System.out.println("\n");
-
+@Override
+        public String exibirFuncionario() {
+        return String.format(
+        "Nome: %s\nCódigo: %s\nSalário: R$%,.2f\nNível: %s\nFunção: %s\n\n",
+        this.nome,
+        this.codigo,
+        this.calcularSalario(),
+        this.nivel,
+        this.funcao
+    );
+}
 
     }
 
-}
+

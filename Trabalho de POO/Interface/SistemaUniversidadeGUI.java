@@ -1,9 +1,7 @@
-package src;
+package Interface;
 
-import src.SistemaUniversidadeController;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SistemaUniversidadeGUI extends JFrame {
@@ -293,8 +291,7 @@ public class SistemaUniversidadeGUI extends JFrame {
     // Métodos de relatórios
     private void gerarRelatorioGeral() {
         outputArea.append(controller.gerarRelatorioGeral());
-        // Aqui você pode implementar a captura da saída do método geral() da universidade
-        controller.getUniversidade().geral();
+        outputArea.append(controller.getUniversidade().geral());
     }
     
     private void gerarResumoDepartamentos() {
@@ -345,7 +342,7 @@ public class SistemaUniversidadeGUI extends JFrame {
                 double min = Double.parseDouble(minField.getText().trim());
                 double max = Double.parseDouble(maxField.getText().trim());
                 
-                outputArea.append(controller.gerarFuncionariosPorFaixaSalarial(min, max));
+                outputArea.append(controller.FuncionariosPorFaixaSalarial(min, max));
                 controller.getUniversidade().funcionarioEntre((int)min, (int)max);
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Valores inválidos!");
@@ -355,7 +352,7 @@ public class SistemaUniversidadeGUI extends JFrame {
     
     private void todosFuncionarios() {
         outputArea.append(controller.gerarRelatorioTodosFuncionarios());
-        controller.getUniversidade().exibirTodosFunc();
+        outputArea.append(controller.getUniversidade().exibirTodosFunc());
     }
     
     private void todosTecnicos() {

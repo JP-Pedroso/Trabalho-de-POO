@@ -17,9 +17,8 @@ public class Departamento {
         this.cont = 0;
         this.funcionarios = new Funcionario[MAX];
     }
-    
 
-
+    // Getters (mantidos iguais)
     public Funcionario[] getFuncionarios() {
         return funcionarios;
     }
@@ -36,67 +35,61 @@ public class Departamento {
         return this.cont;
     }
 
-    public void addFuncionario(Funcionario func){
-        if (cont< MAX) {
+    public void addFuncionario(Funcionario func) {
+        if (cont < MAX) {
             this.funcionarios[cont] = func;
             cont++;
-        }else{
-            System.out.println("Não é possivel adicionar funcionários neste departamento.");
+        } else {
+            System.out.println("Não é possível adicionar funcionários neste departamento.");
         }
     }
 
-    public double totalGasto(){
+    public double totalGasto() {
         double soma = 0;
-
-        for (int i = 0; i< cont; i++){
+        for (int i = 0; i < cont; i++) {
             soma += funcionarios[i].calcularSalario();
         }
         return soma;
     }
 
-    
-    public void exibirFuncionarios(){        
-        
+    public String exibirFuncionarios() {
+        String resultado = "";
         for (int i = 0; i < cont; i++) {
             if (funcionarios[i] != null) {
-                funcionarios[i].exibirFuncionario();
+                resultado += funcionarios[i].exibirFuncionario();
             } else {
-                System.out.println("Funcionário não existe (null)");
+                resultado += "Funcionário não existe (null)\n";
             }
         }
+        return resultado;
     }
 
-    public void exibirGeralDepartamento(){
+            public String exibirGeralDepartamento() {
+            return "Departamento: " + this.nome + "\n" +
+           "Código do departamento: " + this.codigo + "\n" +
+           "Número de funcionários: " + this.cont + "\n" +
+           "Total gasto com salário: " + String.format("R$%,.2f", this.totalGasto()) + "\n" +
+           "\nFuncionários:\n" + this.exibirFuncionarios();
+}
 
-        System.out.println("Departamanto: " + this.nome);
-        System.out.println("Codigo do departamanto: " + this.codigo);
-        System.out.println("Numero de funcionarios: " + this.cont);
-        System.out.println("funcionarios: ");
-        this.exibirFuncionarios();
-        System.out.println("Total gasto com salaio: " + this.totalGasto());
-    
-    }
-
-    public void resumoDepartamento(){
-
-        System.out.println("Departamanto: " + this.nome);
-        System.out.println("Codigo do departamanto: " + this.codigo);
-        System.out.println("Numero de funcionarios: " + this.cont);
-        System.out.println("Total gasto com salaio: " + this.totalGasto());
-    
-    }
-
-    public Funcionario buscarFuncByCod(String codigo){
+            public String resumoDepartamento() {
+            return "Departamento: " + this.nome + "\n" +
+           "Código do departamento: " + this.codigo + "\n" +
+           "Número de funcionários: " + this.cont + "\n" +
+           "Total gasto com salário: " + String.format("R$%,.2f", this.totalGasto()) + "\n";
+}
+    public Funcionario buscarFuncByCod(String codigo) {
         for (int i = 0; i < cont; i++) {
-            if (funcionarios[i].getCodigo() == codigo) {
+            if (funcionarios[i].getCodigo().equals(codigo)) {
                 return funcionarios[i];
             }
         }
         return null;
     }
-    public Funcionario buscarFuncByNome(String nome){
+
+    public Funcionario buscarFuncByNome(String nome) {
         for (int i = 0; i < cont; i++) {
-            if (funcionarios[i].getNome() == nome) {
+            if (funcionarios[i].getNome().equals(nome)) {
                 return funcionarios[i];
             }
         }

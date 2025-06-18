@@ -1,6 +1,6 @@
 package Funcionario;
 
-public class Substituto extends Docente{
+public class Substituto extends Docente {
 
     private int cargahoraria;
 
@@ -17,19 +17,13 @@ public class Substituto extends Docente{
         this.cargahoraria = cargahoraria;
     }
 
-
     @Override
-    public void exibirFuncionario(){
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Codigo: " + this.codigo);
-        System.out.println("Salário: " + this.calcularSalario());
-        System.out.println("Nivel: " + this.nivel);
-        System.out.println("Titulação: " + this.titulaçao);
-        System.out.println("Carga Horária: " + this.cargahoraria);
-        System.out.println("\n");
+    public String exibirFuncionario() {
+        return "Nome: " + this.nome + "\n" +
+               "Código: " + this.codigo + "\n" +
+               "Salário: " + this.calcularSalario() + "\n" +
+               "Nível: " + this.nivel + "\n" +
+               "Titulação: " + this.titulaçao + "\n" +
+               "Carga Horária: " + this.cargahoraria + "\n\n";
     }
-
-
-    
-
 }

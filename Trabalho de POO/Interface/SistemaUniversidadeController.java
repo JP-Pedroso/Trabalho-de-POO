@@ -1,4 +1,4 @@
-package src;
+package Interface;
 
 import Funcionario.*;
 import Universidade.Universidade;
@@ -76,14 +76,14 @@ public class SistemaUniversidadeController {
         sb.append("=== RELATÓRIO GERAL ===\n");
         sb.append("Universidade: ").append(universidade.getNome()).append("\n\n");
         
-        // Implementar captura da saída do método geral()
+
         return sb.toString();
     }
     
     public String gerarResumoDepartamentos() {
         StringBuilder sb = new StringBuilder();
-        sb.append("=== RESUMO DOS DEPARTAMENTOS ===\n");
-        // Implementar lógica para resumo
+        sb.append("=== RESUMO DOS DEPARTAMENTOS ===\n"); 
+        sb.append(universidade.resumoDepartamento()).append("\n\n");
         return sb.toString();
     }
     
@@ -91,71 +91,71 @@ public class SistemaUniversidadeController {
         StringBuilder sb = new StringBuilder();
         sb.append("=== DEPARTAMENTOS COM GASTO ENTRE R$ ").append(valorMin)
           .append(" E R$ ").append(valorMax).append(" ===\n");
-        // Usar método existente resumoDepEntre
+        sb.append(universidade.resumoDepEntre(valorMin, valorMax));
         return sb.toString();
     }
     
-    public String gerarFuncionariosPorFaixaSalarial(double salarioMin, double salarioMax) {
+    public String FuncionariosPorFaixaSalarial(double salarioMin, double salarioMax) {
         StringBuilder sb = new StringBuilder();
         sb.append("=== FUNCIONÁRIOS COM SALÁRIO ENTRE R$ ").append(salarioMin)
           .append(" E R$ ").append(salarioMax).append(" ===\n");
-        // Usar método existente funcionarioEntre
+        sb.append(universidade.funcionarioEntre(salarioMin, salarioMax));
         return sb.toString();
     }
     
     public String gerarRelatorioTodosFuncionarios() {
         StringBuilder sb = new StringBuilder();
         sb.append("=== TODOS OS FUNCIONÁRIOS ===\n");
-        // Usar método existente exibirTodosFunc
+        sb.append(universidade.exibirTodosFunc());
         return sb.toString();
     }
     
     public String gerarRelatorioTecnicos() {
         StringBuilder sb = new StringBuilder();
         sb.append("=== TODOS OS TÉCNICOS ===\n");
-        // Usar método existente exibirTecnicos
+        sb.append(universidade.exibirTecnicos());
         return sb.toString();
     }
     
     public String gerarRelatorioDocentes() {
         StringBuilder sb = new StringBuilder();
         sb.append("=== TODOS OS DOCENTES ===\n");
-        // Usar método existente exibirDocentes
+        sb.append(universidade.exibirDocentes());
         return sb.toString();
     }
     
     public String gerarRelatorioDocentesEfetivos() {
         StringBuilder sb = new StringBuilder();
         sb.append("=== DOCENTES EFETIVOS ===\n");
-        // Usar método existente exibirDocentesEfetivos
+        sb.append(universidade.exibirDocentesEfetivos());
         return sb.toString();
     }
     
     public String gerarRelatorioDocentesSubstitutos() {
         StringBuilder sb = new StringBuilder();
         sb.append("=== DOCENTES SUBSTITUTOS ===\n");
-        // Usar método existente exibirDocentesSubstitutos
+        sb.append(universidade.exibirDocentesSubstitutos());
         return sb.toString();
     }
     
     public String buscarFuncionarioPorCodigo(String codigo) {
         StringBuilder sb = new StringBuilder();
         sb.append("=== BUSCA POR CÓDIGO: ").append(codigo).append(" ===\n");
-        // Usar método existente exibirFuncByCod
+        sb.append(universidade.exibirFuncByCod(codigo));
         return sb.toString();
     }
     
     public String buscarFuncionarioPorNome(String nome) {
         StringBuilder sb = new StringBuilder();
         sb.append("=== BUSCA POR NOME: ").append(nome).append(" ===\n");
-        // Usar método existente exibirFuncByNome
+        sb.append(universidade.exibirFuncByNome(nome));
         return sb.toString();
     }
     
     public String exibirInformacoesDepartamento(String codigo) {
         StringBuilder sb = new StringBuilder();
         sb.append("=== INFORMAÇÕES DO DEPARTAMENTO ===\n");
-        // Usar método existente exibirInfoDepartamento
+        sb.append(universidade.exibirInfoDepartamento(codigo));
         return sb.toString();
     }
     

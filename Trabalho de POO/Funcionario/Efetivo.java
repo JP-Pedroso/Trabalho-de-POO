@@ -17,19 +17,13 @@ public class Efetivo extends Docente {
         this.area = area;
     }
 
-
     @Override
-    public void exibirFuncionario(){
-        System.out.println("Nome: " + this.nome);
-        System.out.println("Codigo: " + this.codigo);
-        System.out.println("Salário: " + this.calcularSalario());
-        System.out.println("Nivel: " + this.nivel);
-        System.out.println("Titulaçao: " + this.titulaçao);
-        System.out.println("Area: " + this.area);
-        System.out.println("\n");
-
+    public String exibirFuncionario() {
+        return "Nome: " + this.nome + "\n" +
+               "Código: " + this.codigo + "\n" +
+               "Salário: " + this.calcularSalario() + "\n" +
+               "Nível: " + this.nivel + "\n" +
+               "Titulação: " + this.titulaçao + "\n" +
+               "Área: " + this.area + "\n\n";
     }
-
-    
-
 }
