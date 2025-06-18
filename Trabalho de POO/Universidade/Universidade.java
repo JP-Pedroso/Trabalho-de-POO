@@ -185,18 +185,21 @@ public class Universidade {
         }
     }
 
-    public Departamento buscarDepartamento(String codigo){
-
-        for (int i = 0; i < contDep; i++) {
-            if (departamentos[i].getCodigo() == codigo) {
-
+    public Departamento buscarDepartamento(String codigo) {
+        if (codigo == null || departamentos == null) {
+            return null;
+        }
+        
+        String codigoBusca = codigo.trim();
+        for (int i = 0; i < departamentos.length; i++) {
+            if (departamentos[i] != null && 
+                departamentos[i].getCodigo().trim().equalsIgnoreCase(codigoBusca)) {
                 return departamentos[i];
-                
             }
         }
-        System.out.println("Nao ha um departamento com esse codigo");
         return null;
     }
+    
     public void exibirInfoDepartamento(String codigo){
 
         for (int i = 0; i < contDep; i++) {
